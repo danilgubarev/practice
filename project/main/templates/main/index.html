@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <h3>Ви зайшли в аккаунт як {{user.username}}</h3>
+    <a href="{% url 'logout' %}">logout</a>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe odit officia sunt omnis in consectetur tempore aperiam eum sequi. Illo, temporibus natus ab illum quam nulla. Placeat iste unde fugit!</p>
+    <button><a href="{% url 'vacansies' %}">Look vacansies</a></button> <br>
+    {% else %}
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe odit officia sunt omnis in consectetur tempore aperiam eum sequi. Illo, temporibus natus ab illum quam nulla. Placeat iste unde fugit!</p>
+    <button><a href="{% url 'auth' %}">Look vacansies</a></button>
+    {% endif %}
+
+    {% for vac in vacansies %}
+    {{vac.company}} <br>
+    {{vac.salary}} <br>
+    {{vac.conditions}} <br>
+    {{vac.email}} <br>
+    {% endfor %}
+
+</body>
+
+
+</html>
